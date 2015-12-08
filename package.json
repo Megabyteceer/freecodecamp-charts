@@ -1,0 +1,36 @@
+{
+  "name": "fcc-charts",
+  "version": "0.0.1",
+  "description": "Web application for coordinate with friends.",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Megabyteceer/freecodecamp_nightlife.git"
+  },
+  "keywords": [
+    "MongoDB",
+    "Mongoose",
+    "full stack",
+    "Express",
+    "Node",
+    "javascript"
+  ],
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Vasiliy Kostin",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "connect-mongo": "^0.8.2",
+    "dotenv": "^1.2.0",
+    "express": "^4.12.4",
+    "express-session": "^1.11.3",
+    "mongoose": "^4.1.0",
+    "oauth-signature": "^1.3.1"
+  },
+  "bugs": {
+    "url": "https://github.com/Megabyteceer/freecodecamp_nightlife/issues"
+  },
+  "homepage": "https://github.com/Megabyteceer/freecodecamp_nightlife#readme"
+}

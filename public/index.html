@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html ng-app="megabyte.night-life">
+
+	<head>
+		<title>Night-life</title>
+		<link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<link href="/public/css/main.css" rel="stylesheet" type="text/css">
+		<link href="/public/css/timer.css" rel="stylesheet" type="text/css">
+		<link rel="SHORTCUT ICON" href="favicon.ico" type="image/x-icon">
+		<link rel="icon" type="image/ico" href="favicon.ico">
+
+	</head>
+
+	<body>
+	<div id="body">
+		<div class="container header flext-center-center" ng-controller="UserController as user" ng-cloak>
+			<div ng-show="user.data.displayName" class="text-center">
+				Welcome, {{user.data.displayName}}!<br>
+				<a class="menu" href="/profile">Profile</a> | 
+				<a class="menu" href="/logout">Logout</a>
+			</div>
+			
+			<div ng-show="!user.data.displayName" class="text-center">
+				please, 
+				<a class="menu" href="/login">Login</a>
+				to say about your goings.
+			</div>
+		</div>
+		
+		<app-title></app-title>
+		
+
+		
+		<div class="container" ng-controller="PlaceController as controller" ng-cloak>
+				
+				<div class="row">
+					<div class="col-md-offset-3 col-md-6">
+						<input ng-change="controller.searchChanged()" ng-model-options="{debounce:1000}" class="form-control" type="text" ng-model="controller.whereYou" placeholder="where you at?">
+				    </div>
+			    </div>
+			    <div class="container flext-center-center">
+				    <div ng-show="controller.showLoaderPic" class="timer-loader">
+						  Loading…
+					</div>
+				</div>
+				<div class="places-container places-container-collapse" ng-class="controller.containerClass">
+					
+
+					
+					<div class="row" ng ng-repeat="place in controller.places">
+						<div class="col-md-offset-2 col-md-8">
+							<div class="place row">
+								<div class="col-md-3 text-center">
+										<a target="_blank" href="{{place.url}}">
+											<img class="place-pic" src="{{place.image_url}}">
+										</a>
+										<br>
+										<img src="{{place.rating_img_url}}">
+								</div>
+								<div class="col-md-9">
+										<a target="_blank" href="{{place.url}}">
+											<span class="place-title">{{place.name}}</span>
+										</a>
+										<br>
+										<span class="place-adr">{{place.adr}}</span>
+										<br>
+										{{place.snippet_text}}
+										
+								</div>
+								<button ng-click="controller.goingClick(place)" class="btn btn-xs btn-primary pull-right btn-going"><span class="badge">{{place.going}}</span> going</button>
+							</div>
+					    </div>
+				    </div>
+				</div>
+		</div>
+	</div>
+
+	<div class="footer flext-center-center">
+		<a href="http://codepen.io/Megabyteceer/full/xwzMej/">Vasiliy Kostin</a>, fullstack, nodejs, angular, <a href="http://www.yelp.com/" target="_blank"> yelp API <img src="public/img/yelp_logo_small.png"></a>
+	</div>
+	
+		
+<!-- confirmation dialogue-->		
+<div id='confirmation-modal' class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="alert alert-danger">
+      <div class="row"><div class="col-xs-12">
+      	<h4 id="modal-confirm-title" class="text-center">A you sure?</h4>
+      	<hr>
+      </div></div>
+      <div class="row"><div class="col-xs-12">
+      	<div id="modal-confirm-text" class="text-center"></div>
+      </div></div>
+      <div class="row"><div class="col-xs-12">
+      	<hr>
+      	<div class="pull-right">
+	      <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+	      <button id="modal-confirm-btn" type="button" class="btn btn-danger">Yes</button>
+	    </div>
+      </div></div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+		
+
+
+
+
+		
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		<script src="controllers/app.js"></script>
+		<script type="text/javascript" src="controllers/placeController.client.js"></script>
+
+		<script type="text/javascript" src="controllers/userController.client.js"></script>
+		
+	</body>
+
+</html>
