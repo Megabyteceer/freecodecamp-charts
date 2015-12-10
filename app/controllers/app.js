@@ -1,15 +1,8 @@
 
 
 
-angular.module('megabyte.night-life', [])
+angular.module('megabyte.fcc-charts', [])
 
-
-.directive('appTitle', function() {
-  return {
-    restrict: 'E',
-    templateUrl: 'partials/app-title.html'
-  };
-})
 
 .directive('confirmationNeeded', function () {
   return {

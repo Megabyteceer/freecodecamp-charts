@@ -1,4 +1,4 @@
-# freecodecamp_nightlife - learning project for freecodecamp.com
+# freecodecamp-charts - learning project for freecodecamp.com
 
 ## License
 
