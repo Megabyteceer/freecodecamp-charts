@@ -29,7 +29,7 @@
 				
 				
 				
-				<div class="flext-center-center" id="no-stocks-added" ng-show="controller.chartsData.length==0">no stocks added</div>
+			<div class="flext-center-center" id="no-stocks-added" ng-show="controller.chartsData.length==0">no stocks added</div>
 			</div>
     		<div class="row">
 				<div class="col-xs-8 col-xs-offset-2">
@@ -51,7 +51,7 @@
 					</div>
 
 					<div class="input-group">
-			      <input id="stock-name" class="form-control" ng-model="controller.newName" ng-change="controller.newNameChanged()" type="text" placeholder="add new stock"/>
+			      <input ng-keypress="($event.which === 13)?controller.addClick():0" id="stock-name" class="form-control" ng-model="controller.newName" ng-change="controller.newNameChanged()" type="text" placeholder="add new stock"/>
 			      <span class="input-group-btn">
 			        <button ng-disabled="!controller.addEnabled" ng-click="controller.addClick()" class="btn btn-success" type="button"><span class="glyphicon glyphicon-plus"></span> Add</button>
 			      </span>

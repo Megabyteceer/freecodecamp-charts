@@ -61,7 +61,7 @@ function StockHandler() {
 				ret[k] = a[k];
 				count++;
 			}
-			if (count >= 10)
+			if (count >= 12)
 				break;
 		}
 		res.json(ret);
@@ -74,7 +74,7 @@ function StockHandler() {
 		var id = req.params.id.toUpperCase();
 		if (currentSymbols.indexOf(id) < 0) {
 			currentSymbols.push(id);
-			if(currentSymbols.length > 8){
+			if(currentSymbols.length > 10){
 				currentSymbols.shift();
 			}
 		}

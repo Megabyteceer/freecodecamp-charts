@@ -161,11 +161,6 @@
       
       function checkIfAlreadyAdded(){
          
-         if (chartsData.length >= 8) {
-            controller.addEnabled = false;
-            return;
-         }
-         
          chartsData.forEach(function(c){
             if(c.code === controller.newName){
                controller.addEnabled = false;
@@ -179,6 +174,7 @@
          controller.findedStocks = [];
          controller.addEnabled = true;
          checkIfAlreadyAdded();
+         $('input').focus();
       }
       
       var renewDelay =0;
@@ -209,10 +205,12 @@
 
 
       controller.addClick = function() {
-         $http.post('api/symbols/' + controller.newName).then(function() {
-            controller.newName = '';
-            renewCharts();
-         });
+         if(controller.addEnabled) {
+            $http.post('api/symbols/' + controller.newName).then(function() {
+               controller.newName = '';
+               renewCharts();
+            });
+         }
       }
       
       controller.removeClick = function(chart){
