@@ -42,7 +42,7 @@ function StockHandler() {
 	loadSymbols();
 
 
-	var currentSymbols = [];
+	var currentSymbols = ['GOOGL','AAPL'];
 	var charts = {};
 	var chartsDate = 0;
 

@@ -160,7 +160,6 @@
       
       
       function checkIfAlreadyAdded(){
-         
          chartsData.forEach(function(c){
             if(c.code === controller.newName){
                controller.addEnabled = false;
